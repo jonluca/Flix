@@ -12,6 +12,7 @@
 		087E75201D9238000032AF0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 087E751E1D9238000032AF0C /* Main.storyboard */; };
 		087E75221D9238000032AF0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 087E75211D9238000032AF0C /* Assets.xcassets */; };
 		087E75251D9238000032AF0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 087E75231D9238000032AF0C /* LaunchScreen.storyboard */; };
+		61C86014BD552F3F87952A01 /* Pods_Flix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D5F6790CC4C61728C540591 /* Pods_Flix.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		087E75211D9238000032AF0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		087E75241D9238000032AF0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		087E75261D9238000032AF0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D5F6790CC4C61728C540591 /* Pods_Flix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F2C81092BDD6CBD067CD368 /* Pods-Flix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flix/Pods-Flix.debug.xcconfig"; sourceTree = "<group>"; };
+		FC3B61EE8EACC98F148C3117 /* Pods-Flix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flix.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flix/Pods-Flix.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61C86014BD552F3F87952A01 /* Pods_Flix.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				087E75191D9238000032AF0C /* Flix */,
 				087E75181D9238000032AF0C /* Products */,
+				AD26485BEAB1862059FCC6DA /* Pods */,
+				4E54B68ED29F7EE8F838A130 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = Flix;
 			sourceTree = "<group>";
 		};
+		4E54B68ED29F7EE8F838A130 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D5F6790CC4C61728C540591 /* Pods_Flix.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD26485BEAB1862059FCC6DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6F2C81092BDD6CBD067CD368 /* Pods-Flix.debug.xcconfig */,
+				FC3B61EE8EACC98F148C3117 /* Pods-Flix.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 087E75291D9238000032AF0C /* Build configuration list for PBXNativeTarget "Flix" */;
 			buildPhases = (
+				73BA3274F829D7A6B09D4A2E /* [CP] Check Pods Manifest.lock */,
 				087E75131D9237FF0032AF0C /* Sources */,
 				087E75141D9237FF0032AF0C /* Frameworks */,
 				087E75151D9237FF0032AF0C /* Resources */,
+				8DC817CF55CB3A50E31A8DF1 /* [CP] Embed Pods Frameworks */,
+				66B8A35831E50E970C042288 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		66B8A35831E50E970C042288 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Flix/Pods-Flix-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		73BA3274F829D7A6B09D4A2E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8DC817CF55CB3A50E31A8DF1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Flix/Pods-Flix-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		087E75131D9237FF0032AF0C /* Sources */ = {
@@ -257,6 +332,7 @@
 		};
 		087E752A1D9238000032AF0C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F2C81092BDD6CBD067CD368 /* Pods-Flix.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = XD92VBX7GT;
@@ -270,6 +346,7 @@
 		};
 		087E752B1D9238000032AF0C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC3B61EE8EACC98F148C3117 /* Pods-Flix.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = XD92VBX7GT;
@@ -300,6 +377,7 @@
 				087E752B1D9238000032AF0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
