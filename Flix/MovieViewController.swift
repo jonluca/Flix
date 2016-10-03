@@ -88,6 +88,8 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
                                                                     // This is where you will store the returned array of posts in your posts property
                                                                     self.movies = responseDictionary["results"] as! [NSDictionary]
                                                                     self.tableView.reloadData()
+                                                                    refreshControl.endRefreshing()
+
                                                                 }
                                                             }
         })
@@ -134,6 +136,7 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
                                                                     // This is where you will store the returned array of posts in your posts property
                                                                     self.movies += responseDictionary["results"] as! [NSDictionary]
                                                                     self.tableView.reloadData()
+
                                                                 }
                                                             }
         })
