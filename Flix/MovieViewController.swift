@@ -85,9 +85,6 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
                                                             if let data = dataOrNil {
                                                                 if let responseDictionary = try! JSONSerialization.jsonObject(
                                                                     with: data, options:[]) as? NSDictionary {
-                                                                    print("response: \(responseDictionary)")
-                                                                    
-                                                                    
                                                                     // This is where you will store the returned array of posts in your posts property
                                                                     self.movies = responseDictionary["results"] as! [NSDictionary]
                                                                     self.tableView.reloadData()
@@ -134,8 +131,6 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
                                                                 if let responseDictionary = try! JSONSerialization.jsonObject(
                                                                     with: data, options:[]) as? NSDictionary {
                                                                     print("response: \(responseDictionary)")
-                                                                    
-                                                                    
                                                                     // This is where you will store the returned array of posts in your posts property
                                                                     self.movies += responseDictionary["results"] as! [NSDictionary]
                                                                     self.tableView.reloadData()
