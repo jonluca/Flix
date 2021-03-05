@@ -21,8 +21,11 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.title = "Newest Movies"
+        
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(MovieViewController.refreshControlAction), for: UIControlEvents.valueChanged)
+        refreshControl.addTarget(self, action: #selector(MovieViewController.refreshControlAction), for: UIControl.Event.valueChanged)
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
         let request = URLRequest(
@@ -63,7 +66,7 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
         return movies.count;
     }
     
-    func refreshControlAction(refreshControl: UIRefreshControl) {
+    @objc func refreshControlAction(refreshControl: UIRefreshControl) {
         
         // ... Create the NSURLRequest (myRequest) ...
         
