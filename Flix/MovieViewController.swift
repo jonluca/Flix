@@ -24,6 +24,17 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.title = "Newest Movies"
         
+        apiCall()
+        // Do any additional setup after loading the view.
+    }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func apiCall(){
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(MovieViewController.refreshControlAction), for: UIControl.Event.valueChanged)
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
@@ -39,32 +50,20 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
             delegateQueue: OperationQueue.main
         )
         
-        let task: URLSessionDataTask = session.dataTask(with: request,
-                                                        completionHandler: { (dataOrNil, response, error) in
-                                                            if let data = dataOrNil {
-                                                                if let responseDictionary = try! JSONSerialization.jsonObject(
-                                                                    with: data, options:[]) as? NSDictionary {                                                                    
-                                                                    
-                                                                    // This is where you will store the returned array of posts in your posts property
-                                                                    self.movies = responseDictionary["results"] as! [NSDictionary]
-                                                                    self.tableView.reloadData()
-                                                                }
-                                                            }
+        let task: URLSessionDataTask = session.dataTask(with: request,completionHandler: { (dataOrNil, response, error) in
+            if let data = dataOrNil {
+                if let responseDictionary = try! JSONSerialization.jsonObject(with: data, options:[]) as? NSDictionary {
+                    
+                    // This is where you will store the returned array of posts in your posts property
+                    self.movies = responseDictionary["results"] as! [NSDictionary]
+                    self.tableView.reloadData()
+                }
+            }
         })
         task.resume()
         tableView.insertSubview(refreshControl, at: 0)
-
-        // Do any additional setup after loading the view.
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count;
-    }
     
     @objc func refreshControlAction(refreshControl: UIRefreshControl) {
         
@@ -83,18 +82,17 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
             delegateQueue: OperationQueue.main
         )
         
-        let task: URLSessionDataTask = session.dataTask(with: request,
-                                                        completionHandler: { (dataOrNil, response, error) in
-                                                            if let data = dataOrNil {
-                                                                if let responseDictionary = try! JSONSerialization.jsonObject(
-                                                                    with: data, options:[]) as? NSDictionary {
-                                                                    // This is where you will store the returned array of posts in your posts property
-                                                                    self.movies = responseDictionary["results"] as! [NSDictionary]
-                                                                    self.tableView.reloadData()
-                                                                    refreshControl.endRefreshing()
-
-                                                                }
-                                                            }
+        let task: URLSessionDataTask = session.dataTask(with: request,completionHandler: { (dataOrNil, response, error) in
+            if let data = dataOrNil {
+                if let responseDictionary = try! JSONSerialization.jsonObject(
+                    with: data, options:[]) as? NSDictionary {
+                    // This is where you will store the returned array of posts in your posts property
+                    self.movies = responseDictionary["results"] as! [NSDictionary]
+                    self.tableView.reloadData()
+                    refreshControl.endRefreshing()
+                    
+                }
+            }
         })
         task.resume()
     }
@@ -130,18 +128,16 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
             delegateQueue: OperationQueue.main
         )
         
-        let task: URLSessionDataTask = session.dataTask(with: request,
-                                                        completionHandler: { (dataOrNil, response, error) in
-                                                            if let data = dataOrNil {
-                                                                if let responseDictionary = try! JSONSerialization.jsonObject(
-                                                                    with: data, options:[]) as? NSDictionary {
-                                                                    print("response: \(responseDictionary)")
-                                                                    // This is where you will store the returned array of posts in your posts property
-                                                                    self.movies += responseDictionary["results"] as! [NSDictionary]
-                                                                    self.tableView.reloadData()
-
-                                                                }
-                                                            }
+        let task: URLSessionDataTask = session.dataTask(with: request,completionHandler: { (dataOrNil, response, error) in
+            if let data = dataOrNil {
+                if let responseDictionary = try! JSONSerialization.jsonObject(with: data, options:[]) as? NSDictionary {
+                    print("response: \(responseDictionary)")
+                    // This is where you will store the returned array of posts in your posts property
+                    self.movies += responseDictionary["results"] as! [NSDictionary]
+                    self.tableView.reloadData()
+                    
+                }
+            }
         })
         task.resume()        // ... Create the NSURLRequest (myRequest) ...
         
@@ -149,8 +145,12 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movies.count
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.rowHeight = 150;
+        tableView.rowHeight = 175;
         let movie = movies[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell
         if let photos = movie.value(forKeyPath: "poster_path") as? String {
@@ -177,11 +177,22 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
             //nil
         }
         
+        if let releaseDate = movie.value(forKeyPath: "release_date") as? String {
+            cell.releaseDate.text = "Release Date: \(releaseDate)"
+            
+        }else{
+            
+        }
+        
+        if let status = movie.value(forKeyPath: "status") as? String {
+            cell.status.text = "Status:\(status)"
+        }else{
+            
+        }
+        
         
         return cell
     }
-    
-    
     
 }
 
