@@ -48,30 +48,55 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="151"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="khz-Qy-CMY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="khz-Qy-CMY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="151"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="Caz-GM-GGU"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kN-Ru-Nh0">
-                                                    <rect key="frame" x="112" y="22" width="208" height="128"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Description" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kN-Ru-Nh0">
+                                                    <rect key="frame" x="112" y="22" width="302" height="129"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKY-c5-ZkP">
-                                                    <rect key="frame" x="112" y="11" width="208" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKY-c5-ZkP">
+                                                    <rect key="frame" x="112" y="11" width="282" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="VoW-la-7U2"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oca-sl-0Yt">
+                                                    <rect key="frame" x="112" y="35" width="62.5" height="12"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-BoldOblique" family="Helvetica" pointSize="10"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZKY-c5-ZkP" firstAttribute="top" secondItem="crQ-CR-ZQQ" secondAttribute="topMargin" id="1gV-XD-DzY"/>
+                                                <constraint firstItem="2kN-Ru-Nh0" firstAttribute="top" secondItem="crQ-CR-ZQQ" secondAttribute="top" constant="22" id="3Qr-SI-I23"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZKY-c5-ZkP" secondAttribute="trailing" id="5FS-7C-uvX"/>
+                                                <constraint firstAttribute="trailing" secondItem="2kN-Ru-Nh0" secondAttribute="trailing" id="7Xx-fK-3cf"/>
+                                                <constraint firstItem="Oca-sl-0Yt" firstAttribute="top" secondItem="ZKY-c5-ZkP" secondAttribute="bottom" constant="3" id="GXU-77-fkB"/>
+                                                <constraint firstItem="2kN-Ru-Nh0" firstAttribute="leading" secondItem="khz-Qy-CMY" secondAttribute="trailing" constant="12" id="Gmk-Sv-xlF"/>
+                                                <constraint firstItem="khz-Qy-CMY" firstAttribute="centerY" secondItem="crQ-CR-ZQQ" secondAttribute="centerY" id="GtT-Oc-uC0"/>
+                                                <constraint firstAttribute="bottom" secondItem="2kN-Ru-Nh0" secondAttribute="bottom" id="KI7-dH-2wl"/>
+                                                <constraint firstItem="khz-Qy-CMY" firstAttribute="leading" secondItem="crQ-CR-ZQQ" secondAttribute="leadingMargin" constant="-20" id="Kld-0d-WJ0"/>
+                                                <constraint firstItem="ZKY-c5-ZkP" firstAttribute="leading" secondItem="Oca-sl-0Yt" secondAttribute="leading" id="UuC-RF-tIn"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Oca-sl-0Yt" secondAttribute="trailing" constant="20" symbolic="YES" id="Ycc-PO-CkF"/>
+                                                <constraint firstItem="ZKY-c5-ZkP" firstAttribute="leading" secondItem="2kN-Ru-Nh0" secondAttribute="leading" id="m5s-CD-7zH"/>
+                                                <constraint firstItem="khz-Qy-CMY" firstAttribute="top" secondItem="crQ-CR-ZQQ" secondAttribute="topMargin" constant="-11" id="v6O-Jc-6Sn"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="movieDescription" destination="2kN-Ru-Nh0" id="5mA-7f-Md2"/>
                                             <outlet property="movieTitle" destination="ZKY-c5-ZkP" id="YRC-4u-GRW"/>
                                             <outlet property="posterImage" destination="khz-Qy-CMY" id="Sz6-1e-kJA"/>
+                                            <outlet property="releaseDate" destination="Oca-sl-0Yt" id="Hbn-fN-OGh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
